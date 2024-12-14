@@ -221,6 +221,7 @@ class BartTokenizer(PreTrainedTokenizer):
     def get_vocab(self):
         return dict(self.encoder, **self.added_tokens_encoder)
     
+    # functions max_subword_split and get_recursive_dict borrowed from FLOTA implementation of substring match: https://github.com/valentinhofmann/flota/blob/main/src/flota.py
     #this function is used to get the longest match from the vocab
     def max_subword_split(self, w):     
         for l in range(len(w), 0, -1):
